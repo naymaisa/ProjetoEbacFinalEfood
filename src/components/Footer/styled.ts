@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const Container = styled.footer`
-  background-color: ${cores.cinza};
+  background-color: ${cores.rosa_bebe}
   padding: 32px 0;
 
   .container {
@@ -47,10 +47,10 @@ export const SocialIcons = styled.div`
 
   a {
     transition: color 0.3s ease;
-    color: ${cores.azul_escuro};
+    color: ${cores.salmao};
 
     &:hover {
-      color: ${cores.azul_claro};
+      color: ${cores.salmao};
     }
   }
 `
