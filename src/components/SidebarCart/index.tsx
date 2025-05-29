@@ -55,7 +55,7 @@ const SidebarCart = ({ isOpen, onClose }: Props) => {
             onClose()
           }}
         >
-          Finalizar pedido
+          Continuar com a entrega
         </FinalizeButton>
       </CartContainer>
     </Overlay>

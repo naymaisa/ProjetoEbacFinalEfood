@@ -51,7 +51,7 @@ const RestaurantePage = () => {
                 <ProdutoTitulo>{produto.nome}</ProdutoTitulo>
                 <ProdutoDescricao>{produto.descricao}</ProdutoDescricao>
                 <AdicionarButton onClick={() => setProdutoSelecionado(produto)}>
-                  Adicionar ao carrinho
+                  Mais detalhes
                 </AdicionarButton>
               </ProdutoInfo>
             </ProdutoCard>
