@@ -22,8 +22,8 @@ export const RestauranteGrid = styled.div`
 export const RestauranteCard = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid #eee;
-  border-radius: 8px;
+  border: 1px solid ${cores.salmao};
+
   margin-bottom: 24px;
   background-color: #fff;
   position: relative;
@@ -49,23 +49,42 @@ export const Tag = styled.span`
 
 export const Conteudo = styled.div`
   padding: 16px;
-  text-align: left;
+  color: ${cores.salmao};
+
+  .linhaTituloNota {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
 `
 
 export const Titulo = styled.h3`
   font-size: 18px;
   margin: 0 0 4px;
+  font-weight: 700;
 `
 
 export const Nota = styled.p`
-  font-size: 14px;
-  color: #ffa500;
+  font-size: 18px;
   margin: 0 0 8px;
+  font-weight: 700;
+
+  .numero {
+    color: ${cores.salmao};
+    font-weight: bold;
+  }
+
+  .estrela {
+    color: gold;
+  }
 `
 
 export const Descricao = styled.p`
   font-size: 14px;
-  color: #666;
+  color: ${cores.salmao};
+  font-weight: 400;
+
   margin-bottom: 16px;
 `
 
@@ -74,6 +93,6 @@ export const SaibaMais = styled.button`
   color: white;
   border: none;
   padding: 8px 16px;
-  border-radius: 4px;
+
   cursor: pointer;
 `

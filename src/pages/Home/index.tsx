@@ -47,8 +47,16 @@ const Home = () => {
               <Capa src={restaurante.capa} alt={restaurante.titulo} />
               <Tag>{restaurante.tipo}</Tag>
               <Conteudo>
-                <Titulo>{restaurante.titulo}</Titulo>
-                <Nota>{restaurante.avaliacao.toFixed(1)} ★</Nota>
+                <div className="linhaTituloNota">
+                  <Titulo>{restaurante.titulo}</Titulo>
+                  <Nota>
+                    <span className="numero">
+                      {restaurante.avaliacao.toFixed(1)}
+                    </span>
+                    <span className="estrela"> ★</span>
+                  </Nota>
+                </div>
+
                 <Descricao>{restaurante.descricao}</Descricao>
                 <SaibaMais
                   onClick={() => navigate(`/restaurante/${restaurante.id}`)}
