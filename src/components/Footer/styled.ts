@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const Container = styled.footer`
-  background-color: ${cores.rosa_bebe}
+  background-color: ${cores.rosa_bebe};
   padding: 32px 0;
 
   .container {
@@ -17,7 +17,14 @@ export const Container = styled.footer`
 
   p {
     margin: 0;
+    font-size: 12px;
   }
+`
+export const Logo = styled.img`
+  display: block;
+  margin: 0 auto 16px auto;
+  max-width: 200px;
+  margin-bottom: 32px;
 `
 
 export const FooterTop = styled.div`
@@ -42,8 +49,12 @@ export const FooterBottom = styled.div`
 
 export const SocialIcons = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
   font-size: 24px;
+  width: 100%;
+  margin: 0 auto;
 
   a {
     transition: color 0.3s ease;

@@ -1,11 +1,11 @@
-import { Container, FooterTop, FooterBottom, SocialIcons } from './styled'
-
+import { Container, FooterTop, FooterBottom, SocialIcons, Logo } from './styled'
+import logo from '../../assets/images/logo2.2.png'
 const Footer = () => (
   <Container>
     <div className="container">
+      <Logo src={logo} alt="efood" />
       <FooterTop>
         <div>
-          <h4>Redes sociais</h4>
           <SocialIcons>
             <a href="https://www.linkedin.com/in/nayaramaisa">
               <i className="bi bi-linkedin"></i>
@@ -22,14 +22,13 @@ const Footer = () => (
             </a>
           </SocialIcons>
         </div>
-        <div>
-          <h4>Localização</h4>
-          <p>Rua Animes, nº2244, Bairro Japão - Belo Horizonte - MG</p>
-          <p>(31)9**34-234*</p>
-        </div>
       </FooterTop>
       <FooterBottom>
-        <p>2025 - &copy; Akihabara Todos os direitos reservados</p>
+        <p>
+          A efood é uma plataforma para divulgação de estabelecimentos, a
+          responsabilidade pela entrega, qualidade{' '}
+        </p>
+        <p>dos produtos é toda do estabelecimento contratado.</p>
       </FooterBottom>
     </div>
   </Container>

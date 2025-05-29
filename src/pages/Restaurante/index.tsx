@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { Restaurante, Produto } from '../../models/Produto'
 import ProductModal from '../../components/ProductModal'
+import HeroRestaurante from '../../components/HeroRestaurante'
 import {
   Banner,
   Cardapio,
@@ -33,11 +34,10 @@ const RestaurantePage = () => {
 
   return (
     <>
-      <Hero
+      <HeroRestaurante
         backgroundImage={restaurante.capa}
         titulo={restaurante.titulo}
-        exibirVoltar
-        exibirCarrinho
+        categoria={restaurante.tipo}
         produtosNoCarrinho={2}
       />
 
