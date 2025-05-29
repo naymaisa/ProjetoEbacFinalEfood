@@ -55,7 +55,6 @@ export const SocialIcons = styled.div`
   font-size: 24px;
   width: 100%;
   margin: 0 auto;
-
   a {
     transition: color 0.3s ease;
     color: ${cores.salmao};
