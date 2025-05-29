@@ -16,16 +16,31 @@ export const Overlay = styled.div`
 export const CartContainer = styled.div`
   width: 360px;
   background: ${cores.salmao};
-  padding: 12px;
+  padding: 16px;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    input {
+      padding: 10px;
+
+      border: none;
+      font-size: 14px;
+    }
+  }
 `
 
 export const CartTitle = styled.h3`
   font-size: 20px;
   margin-bottom: 16px;
+  color: ${cores.rosa_bebe};
 `
 
 export const CartItem = styled.li`
@@ -41,7 +56,6 @@ export const CartItem = styled.li`
     width: 64px;
     height: 64px;
     object-fit: cover;
-    border-radius: 8px;
   }
 
   div {
@@ -65,7 +79,7 @@ export const RemoveButton = styled.button`
   position: absolute;
   bottom: 8px;
   right: 8px;
-  background: none;
+  background: ${cores.rosa_bebe};
   color: ${cores.salmao};
   border: none;
   font-size: 14px;
@@ -73,6 +87,14 @@ export const RemoveButton = styled.button`
   width: 24px;
   height: 24px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: ${cores.salmao};
+    color: white;
+  }
 `
 
 export const FinalizeButton = styled.button`
@@ -81,10 +103,19 @@ export const FinalizeButton = styled.button`
   border: none;
   padding: 12px;
   font-size: 16px;
-  border-radius: 8px;
+
   cursor: pointer;
-  margin-top: auto;
+  margin-top: 16px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `
+
 export const Valor = styled.p`
   color: ${cores.rosa_bebe};
   font-weight: 700;
@@ -92,4 +123,38 @@ export const Valor = styled.p`
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
+`
+export const Texto = styled.p`
+  color: ${cores.rosa_bebe};
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  margin-top: 16px;
+`
+export const Preencher = styled.input`
+  background-color: ${cores.rosa_bebe};
+`
+export const Label = styled.label`
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 12px;
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+  color: ${cores.rosa_bebe};
+  min-width: 0;
+`
+export const Linha = styled.div`
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+
+  ${Label} {
+    flex: 1;
+  }
+`
+export const Pagamento = styled.h3`
+  font-weigth: 700;
+  font-size: 16px;
+  color: ${cores.rosa_bebe};
 `
