@@ -1,9 +1,17 @@
-import { Overlay, ModalContainer, CloseButton, BuyButton } from './styles'
+import {
+  Overlay,
+  ModalContainer,
+  CloseButton,
+  BuyButton,
+  Descricao
+} from './styles'
 
 type Props = {
   title: string
   description: string
   image: string
+  porcao: string
+  preco: number
   onClose: () => void
   onAddToCart: () => void
 }
@@ -12,6 +20,8 @@ const ProductModal = ({
   title,
   description,
   image,
+  porcao,
+  preco,
   onClose,
   onAddToCart
 }: Props) => {
@@ -32,11 +42,17 @@ const ProductModal = ({
             }}
           />
 
-          <div style={{ flex: 1, minWidth: '220px' }}>
+          <Descricao style={{ flex: 1, minWidth: '220px' }}>
             <h2 style={{ margin: '0 0 8px' }}>{title}</h2>
             <p style={{ marginBottom: '16px' }}>{description}</p>
-            <BuyButton onClick={onAddToCart}>Adicionar ao carrinho</BuyButton>
-          </div>
+            <p style={{ fontWeight: 'bold', marginBottom: '24px' }}>
+              Serve: {porcao}
+            </p>
+
+            <BuyButton onClick={onAddToCart}>
+              Adicionar ao carrinho - R$ {preco.toFixed(2)}
+            </BuyButton>
+          </Descricao>
         </div>
       </ModalContainer>
     </Overlay>

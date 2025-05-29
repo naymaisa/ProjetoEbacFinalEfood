@@ -7,7 +7,7 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.74);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,10 +17,10 @@ export const Overlay = styled.div`
 export const ModalContainer = styled.div`
   background: ${cores.salmao};
   padding: 24px;
-  border-radius: 8px;
-  max-width: 600px;
-  width: 90%;
-  max-height: 90vh;
+
+  max-width: 960px;
+  width: 100%;
+  max-height: 344px;
   overflow-y: auto;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -30,10 +30,10 @@ export const CloseButton = styled.button`
   position: absolute;
   right: 12px;
   top: 12px;
-  background: red;
+  background: none;
   color: white;
   border: none;
-  border-radius: 50%;
+
   width: 32px;
   height: 32px;
   cursor: pointer;
@@ -50,7 +50,7 @@ export const BuyButton = styled.button`
   font-size: 16px;
   background: ${cores.rosa_bebe};
   color: ${cores.salmao};
-  border-radius: 8px;
+
   padding: 12px 20px;
   border: none;
   cursor: pointer;
@@ -59,4 +59,7 @@ export const BuyButton = styled.button`
     transform: scale(1.08);
     z-index: 10;
   }
+`
+export const Descricao = styled.div`
+  color: ${cores.branco};
 `

@@ -62,6 +62,8 @@ const RestaurantePage = () => {
           title={produtoSelecionado.nome}
           description={produtoSelecionado.descricao}
           image={produtoSelecionado.foto}
+          porcao={produtoSelecionado.porcao}
+          preco={produtoSelecionado.preco}
           onClose={() => setProdutoSelecionado(null)}
           onAddToCart={() => {
             alert(`${produtoSelecionado.nome} adicionado ao carrinho!`)
