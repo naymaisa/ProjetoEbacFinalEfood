@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import {
   Wrapper,
   TopBackground,
@@ -8,9 +7,9 @@ import {
   HeroImage,
   HeroContent,
   Categoria,
-  Titulo
+  Titulo,
+  ButtonLink
 } from './styled'
-
 import logo from '../../assets/images/logo2.2.png'
 
 type Props = {
@@ -18,21 +17,23 @@ type Props = {
   titulo: string
   categoria: string
   produtosNoCarrinho: number
+  abrirCarrinho: () => void
 }
 
 const HeroRestaurante = ({
   backgroundImage,
   titulo,
   categoria,
-  produtosNoCarrinho
+  produtosNoCarrinho,
+  abrirCarrinho
 }: Props) => {
   return (
     <Wrapper>
       <TopBackground>
         <TopBar>
-          <Button to="/">Restaurantes</Button>
+          <ButtonLink to="/">Restaurantes</ButtonLink>
           <Logo src={logo} alt="eFood" />
-          <Button to="/carrinho">
+          <Button onClick={abrirCarrinho}>
             {produtosNoCarrinho} produto(s) no carrinho
           </Button>
         </TopBar>

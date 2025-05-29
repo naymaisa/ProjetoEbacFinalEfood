@@ -25,13 +25,26 @@ export const Logo = styled.img`
   height: 56px;
 `
 
-export const Button = styled(Link)`
+export const ButtonLink = styled(Link)`
   font-size: 18px;
   color: ${cores.salmao};
   background: none;
   border: none;
   cursor: pointer;
   text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+export const Button = styled.button`
+  font-size: 18px;
+  color: ${cores.salmao};
+  background: none;
+  border: none;
+  cursor: pointer;
   font-weight: bold;
 
   &:hover {

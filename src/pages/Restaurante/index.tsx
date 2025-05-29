@@ -1,10 +1,11 @@
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import { Restaurante, Produto } from '../../models/Produto'
+import { useState } from 'react'
+import { Produto } from '../../models/Produto'
 import ProductModal from '../../components/ProductModal'
 import HeroRestaurante from '../../components/HeroRestaurante'
+import SidebarCart from '../../components/SidebarCart'
+import { useGetRestauranteQuery } from '../../services/api'
 import {
-  Banner,
   Cardapio,
   Container,
   ProdutoCard,
@@ -14,23 +15,22 @@ import {
   ProdutoDescricao,
   AdicionarButton
 } from './styles'
-import Hero from '../../components/Hero'
-import bgHero from '../../assets/images/bg-hero.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../store'
+import { addToCart } from '../../store/reducers/cart'
 
 const RestaurantePage = () => {
   const { id } = useParams()
-  const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
+  const { data: restaurante, isLoading } = useGetRestauranteQuery(id!)
   const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
     null
   )
+  const [isCartOpen, setCartOpen] = useState(false)
 
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then(setRestaurante)
-  }, [id])
+  const dispatch = useDispatch()
+  const cartItems = useSelector((state: RootState) => state.cart.items)
 
-  if (!restaurante) return <p>Carregando restaurante...</p>
+  if (isLoading || !restaurante) return <p>Carregando restaurante...</p>
 
   return (
     <>
@@ -38,7 +38,8 @@ const RestaurantePage = () => {
         backgroundImage={restaurante.capa}
         titulo={restaurante.titulo}
         categoria={restaurante.tipo}
-        produtosNoCarrinho={2}
+        produtosNoCarrinho={cartItems.length}
+        abrirCarrinho={() => setCartOpen(true)}
       />
 
       <Container>
@@ -57,6 +58,9 @@ const RestaurantePage = () => {
           ))}
         </Cardapio>
       </Container>
+
+      <SidebarCart isOpen={isCartOpen} onClose={() => setCartOpen(false)} />
+
       {produtoSelecionado && (
         <ProductModal
           title={produtoSelecionado.nome}
@@ -66,7 +70,7 @@ const RestaurantePage = () => {
           preco={produtoSelecionado.preco}
           onClose={() => setProdutoSelecionado(null)}
           onAddToCart={() => {
-            alert(`${produtoSelecionado.nome} adicionado ao carrinho!`)
+            dispatch(addToCart(produtoSelecionado))
             setProdutoSelecionado(null)
           }}
         />
