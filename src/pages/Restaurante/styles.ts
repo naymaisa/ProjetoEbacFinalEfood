@@ -33,7 +33,7 @@ export const Banner = styled.div`
 export const Container = styled.div`
   max-width: 1024px;
   margin: 0 auto;
-  padding: 32px;
+  padding: 40px 0;
 `
 
 export const Cardapio = styled.div`
@@ -51,11 +51,10 @@ export const ProdutoCard = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `
 export const ProdutoImagem = styled.img`
-  width: 90%;
-  height: 160px;
+  width: 304px;
+  height: 168px;
   object-fit: cover;
-  margin: 16px auto 0 auto;
-  background-color: white;
+  margin: 8px auto 0 auto;
 `
 
 export const ProdutoInfo = styled.div`
@@ -64,6 +63,7 @@ export const ProdutoInfo = styled.div`
 
 export const ProdutoTitulo = styled.h3`
   font-size: 16px;
+  font-weight: 900;
   color: ${cores.branco};
 
   margin-bottom: 8px;
@@ -71,6 +71,8 @@ export const ProdutoTitulo = styled.h3`
 
 export const ProdutoDescricao = styled.p`
   font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
   color: ${cores.branco};
   margin-bottom: 12px;
 `
@@ -80,11 +82,12 @@ export const AdicionarButton = styled.button`
   color: ${cores.salmao};
   border: none;
   padding: 4px;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 100%;
+
   cursor: pointer;
-  margin: 0 8px 4px 8px;
-  width: calc(100% - 16px);
+  width: 304px;
   box-sizing: border-box;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s;

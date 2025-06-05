@@ -4,7 +4,7 @@ import {
   Voltar,
   CarrinhoInfo,
   ConteudoCentralizado
-} from './styles'
+} from './styled'
 import { useNavigate } from 'react-router-dom'
 import React from 'react'
 

@@ -29,25 +29,22 @@ const ProductModal = ({
     <Overlay>
       <ModalContainer>
         <CloseButton onClick={onClose}>×</CloseButton>
-
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
           <img
             src={image}
             alt={title}
             style={{
-              width: '260px',
+              width: '280px',
               maxHeight: '100%',
-              objectFit: 'cover',
-              borderRadius: '8px'
+              objectFit: 'cover'
             }}
           />
 
-          <Descricao style={{ flex: 1, minWidth: '220px' }}>
-            <h2 style={{ margin: '0 0 8px' }}>{title}</h2>
-            <p style={{ marginBottom: '16px' }}>{description}</p>
-            <p style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-              Serve: {porcao}
-            </p>
+          <Descricao>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <br />
+            <p>Serve: {porcao}</p>
 
             <BuyButton onClick={onAddToCart}>
               Adicionar ao carrinho - R$ {preco.toFixed(2)}

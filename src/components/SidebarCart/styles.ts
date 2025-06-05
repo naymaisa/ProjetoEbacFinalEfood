@@ -38,23 +38,29 @@ export const CartContainer = styled.div`
 `
 
 export const CartTitle = styled.h3`
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 16px;
+  margin-top: 32px;
   color: ${cores.rosa_bebe};
+  font-weight: 700;
 `
 
 export const CartItem = styled.li`
   position: relative;
   display: flex;
-  align-items: flex-start;
   background: ${cores.rosa_bebe};
   gap: 12px;
   margin-bottom: 16px;
-  padding: 12px;
+  margin-top: 32px;
+  height: 100px;
+  width: 336px;
 
   img {
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-left: 12px;
     object-fit: cover;
   }
 
@@ -63,7 +69,7 @@ export const CartItem = styled.li`
   }
 
   h4 {
-    margin: 0 0 4px;
+    margin-top: 8px;
     font-size: 18px;
     font-weight: 900;
   }
@@ -72,6 +78,7 @@ export const CartItem = styled.li`
     margin: 0 0 4px;
     font-size: 14px;
     font-weight: 400;
+    margin-top: 16px;
   }
 `
 
@@ -102,7 +109,8 @@ export const FinalizeButton = styled.button`
   color: ${cores.salmao};
   border: none;
   padding: 12px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 700;
 
   cursor: pointer;
   margin-top: 16px;
@@ -122,14 +130,15 @@ export const Valor = styled.p`
   font-size: 14px;
   display: flex;
   justify-content: space-between;
-  margin-top: 16px;
+  margin-top: 40px;
 `
 export const Texto = styled.p`
   color: ${cores.rosa_bebe};
-  font-weight: 700;
+  font-weight: 400;
   font-size: 14px;
   display: flex;
   margin-top: 16px;
+  line-height: 22px;
 `
 export const Preencher = styled.input`
   background-color: ${cores.rosa_bebe};

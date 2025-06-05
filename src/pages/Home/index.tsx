@@ -12,7 +12,8 @@ import {
   Nota,
   SaibaMais,
   Tag,
-  Logo
+  Logo,
+  Frase
 } from './styles'
 import Hero from '../../components/Hero'
 import logo from '../../assets/images/logo2.2.png'
@@ -33,11 +34,11 @@ const Home = () => {
     <>
       <Hero backgroundImage={bgHero}>
         <Logo src={logo} alt="efood" />
-        <h2>
+        <Frase>
           Viva experiências gastronômicas
           <br />
           no conforto da sua casa
-        </h2>
+        </Frase>
       </Hero>
 
       <Container>

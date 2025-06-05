@@ -14,11 +14,13 @@ export const GlobalCss = createGlobalStyle`
     font-family: Roboto, sans-serif;
     list-style: none;
 
+
   }
 
   body {
-    background-color: ${cores.branco};
+    background-color: #FFEB;
     color: ${cores.salmao};
+
   }
 `
 

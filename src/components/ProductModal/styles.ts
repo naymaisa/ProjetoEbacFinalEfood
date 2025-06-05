@@ -7,7 +7,7 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.74);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,27 +18,30 @@ export const ModalContainer = styled.div`
   background: ${cores.salmao};
   padding: 24px;
 
-  max-width: 960px;
+  max-width: 1024px;
   width: 100%;
-  max-height: 344px;
+  height: 344px;
   overflow-y: auto;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   position: relative;
+  img {
+    width: 280px;
+    height: 280px;
+  }
 `
 
 export const CloseButton = styled.button`
   position: absolute;
-  right: 12px;
-  top: 12px;
+  right: 8px;
+  top: 0px;
   background: none;
   color: white;
   border: none;
 
-  width: 32px;
-  height: 32px;
   cursor: pointer;
-  font-size: 20px;
-  line-height: 1;
+  font-size: 40px;
+  font-weight: 100;
+
   &:hover {
     transform: scale(1.1);
     z-index: 10;
@@ -46,12 +49,13 @@ export const CloseButton = styled.button`
 `
 
 export const BuyButton = styled.button`
-  margin-top: 16px;
-  font-size: 16px;
+  margin-bottom: 2px;
+  font-size: 164x;
+  font-weight: 700;
   background: ${cores.rosa_bebe};
   color: ${cores.salmao};
 
-  padding: 12px 20px;
+  padding: 4px 8px;
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -61,5 +65,22 @@ export const BuyButton = styled.button`
   }
 `
 export const Descricao = styled.div`
+  flex: 1;
+  min-width: 220px;
   color: ${cores.branco};
+
+  h2 {
+    font-size: 18px;
+    font-weight: 900;
+    margin: 0 0 8px;
+
+  }
+
+  p {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;s
+  }
 `

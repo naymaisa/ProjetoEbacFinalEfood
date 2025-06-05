@@ -9,22 +9,27 @@ export const Container = styled.div`
 export const Logo = styled.img`
   display: block;
   margin: 0 auto 16px auto;
-  max-width: 200px;
+  width: 125px;
   margin-bottom: 138px;
 `
 
 export const RestauranteGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  column-gap: 80px;
+  row-gap: 48px;
 `
-
+export const Frase = styled.h2`
+  color: ${cores.salmao};
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 100%;
+`
 export const RestauranteCard = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid ${cores.salmao};
 
-  margin-bottom: 24px;
   background-color: #fff;
   position: relative;
   overflow: hidden;
@@ -43,12 +48,13 @@ export const Tag = styled.span`
   background-color: ${cores.salmao};
   color: white;
   padding: 4px 12px;
-  border-radius: 4px;
+  font-weight: 700;
+  line-height: 100%;
   font-size: 12px;
 `
 
 export const Conteudo = styled.div`
-  padding: 16px;
+  padding: 8px;
   color: ${cores.salmao};
 
   .linhaTituloNota {
@@ -63,6 +69,7 @@ export const Titulo = styled.h3`
   font-size: 18px;
   margin: 0 0 4px;
   font-weight: 700;
+  line-height: 100%;
 `
 
 export const Nota = styled.p`
@@ -84,15 +91,21 @@ export const Descricao = styled.p`
   font-size: 14px;
   color: ${cores.salmao};
   font-weight: 400;
+  line-height: 22px;
 
   margin-bottom: 16px;
 `
 
 export const SaibaMais = styled.button`
   background-color: ${cores.salmao};
+  width: 82px;
+  height: 24px;
   color: white;
   border: none;
-  padding: 8px 16px;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 100%;
 
   cursor: pointer;
 `

@@ -47,15 +47,51 @@ const SidebarCart = ({ isOpen, onClose }: Props) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [confirmacao, setConfirmacao] = useState<any>(null)
+  const formatCep = (value: string) => {
+    return value
+      .replace(/\D/g, '')
+      .replace(/^(\d{5})(\d)/, '$1-$2')
+      .slice(0, 9)
+  }
 
   if (!isOpen) return null
 
   const handleDeliveryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDeliveryData({ ...deliveryData, [e.target.name]: e.target.value })
+    const { name, value } = e.target
+    let formatted = value
+
+    if (name === 'zipCode') {
+      formatted = value.replace(/\D/g, '').replace(/^(\d{5})(\d{0,3})/, '$1-$2')
+    }
+
+    setDeliveryData({ ...deliveryData, [name]: formatted })
   }
 
   const handlePaymentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPaymentData({ ...paymentData, [e.target.name]: e.target.value })
+    const { name, value } = e.target
+    let formatted = value
+
+    if (name === 'number') {
+      formatted = value
+        .replace(/\D/g, '')
+        .replace(/(\d{4})(?=\d)/g, '$1 ')
+        .trim()
+        .slice(0, 19)
+    }
+
+    if (name === 'code') {
+      formatted = value.replace(/\D/g, '').slice(0, 3)
+    }
+
+    if (name === 'expiresMonth') {
+      formatted = value.replace(/\D/g, '').slice(0, 2)
+    }
+
+    if (name === 'expiresYear') {
+      formatted = value.replace(/\D/g, '').slice(0, 4)
+    }
+
+    setPaymentData({ ...paymentData, [name]: formatted })
   }
 
   const handleSubmit = async () => {
@@ -113,7 +149,6 @@ const SidebarCart = ({ isOpen, onClose }: Props) => {
       <CartContainer onClick={(e) => e.stopPropagation()}>
         {step === 1 && (
           <>
-            <CartTitle>Seu carrinho</CartTitle>
             <ul>
               {items.map((item: any) => (
                 <CartItem key={item.id}>
@@ -131,7 +166,7 @@ const SidebarCart = ({ isOpen, onClose }: Props) => {
               ))}
             </ul>
             <Valor>
-              Total: <strong>R$ {total}</strong>
+              Valor Total: <strong>R$ {total}</strong>
             </Valor>
             <FinalizeButton
               disabled={items.length === 0}
@@ -185,7 +220,12 @@ const SidebarCart = ({ isOpen, onClose }: Props) => {
                     name="zipCode"
                     required
                     value={deliveryData.zipCode}
-                    onChange={handleDeliveryChange}
+                    onChange={(e) =>
+                      setDeliveryData({
+                        ...deliveryData,
+                        zipCode: formatCep(e.target.value)
+                      })
+                    }
                   />
                 </Label>
                 <Label>
@@ -198,9 +238,8 @@ const SidebarCart = ({ isOpen, onClose }: Props) => {
                   />
                 </Label>
               </Linha>
-
               <Label>
-                Complemento
+                Complemento(opcional)
                 <Preencher
                   name="complement"
                   value={deliveryData.complement}
@@ -220,10 +259,8 @@ const SidebarCart = ({ isOpen, onClose }: Props) => {
         {step === 3 && (
           <>
             <Pagamento>
-              {' '}
               Pagamento - Valor a pagar <strong>R$ {total}</strong>
             </Pagamento>
-
             <form
               onSubmit={(e) => {
                 e.preventDefault()
@@ -280,29 +317,43 @@ const SidebarCart = ({ isOpen, onClose }: Props) => {
                 </Label>
               </Linha>
               {error && <p style={{ color: 'red' }}>{error}</p>}
-              <FinalizeButton type="submit" disabled={loading}>
+              <FinalizeButton
+                type="submit"
+                disabled={
+                  loading ||
+                  paymentData.name.trim() === '' ||
+                  paymentData.number.replace(/\s/g, '').length !== 16 ||
+                  paymentData.code.length !== 3 ||
+                  paymentData.expiresMonth.length !== 2 ||
+                  paymentData.expiresYear.length !== 4
+                }
+              >
                 {loading ? 'Enviando...' : 'Finalizar pedido'}
               </FinalizeButton>
             </form>
             <FinalizeButton onClick={() => setStep(2)}>
-              Voltar para a edição de endereço
+              Voltar para entrega
             </FinalizeButton>
           </>
         )}
 
         {step === 4 && confirmacao && (
           <>
-            <CartTitle>Pedido confirmado!</CartTitle>
-            <Texto>Pedido #{confirmacao.orderId} realizado com sucesso!</Texto>
+            <CartTitle>Pedido realizado {confirmacao.orderId} </CartTitle>
             <Texto>
               Estamos felizes em informar que seu pedido já está em processo de
               preparação e, em breve, será entregue no endereço fornecido.
+              <br />
+              <br />
               Gostaríamos de ressaltar que nossos entregadores não estão
-              autorizados a realizar cobranças extras. Lembre-se da importância
-              de higienizar as mãos após o recebimento do pedido, garantindo
-              assim sua segurança e bem-estar durante a refeição. Esperamos que
-              desfrute de uma deliciosa e agradável experiência gastronômica.
-              Bom apetite!
+              autorizados a realizar cobranças extras.
+              <br />
+              <br /> Lembre-se da importância de higienizar as mãos após o
+              recebimento do pedido, garantindo assim sua segurança e bem-estar
+              durante a refeição.
+              <br />
+              <br /> Esperamos que desfrute de uma deliciosa e agradável
+              experiência gastronômica. Bom apetite!
             </Texto>
             <FinalizeButton onClick={onClose}>Concluir</FinalizeButton>
           </>

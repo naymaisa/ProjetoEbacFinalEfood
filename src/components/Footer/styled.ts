@@ -17,13 +17,15 @@ export const Container = styled.footer`
 
   p {
     margin: 0;
-    font-size: 12px;
+    font-size: 10px;
+    font-weight: 400;
   }
 `
 export const Logo = styled.img`
   display: block;
-  margin: 0 auto 16px auto;
-  max-width: 200px;
+  margin: 42px auto 32px auto;
+  width: 125px;
+  height: 58px;
   margin-bottom: 32px;
 `
 
@@ -51,7 +53,7 @@ export const SocialIcons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   font-size: 24px;
   width: 100%;
   margin: 0 auto;
