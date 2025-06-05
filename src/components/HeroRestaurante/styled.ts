@@ -86,27 +86,21 @@ export const HeroContent = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
 
-  padding: 24px 80px;
+  max-width: 1024px;
+  margin: 0 auto;
+
   color: white;
-
-  @media (max-width: 768px) {
-    padding: 16px 24px;
-  }
 `
 
 export const Categoria = styled.h4`
   font-size: 32px;
   font-weight: 100;
-
-  margin-left: 360px;
 `
 
 export const Titulo = styled.h2`
   font-size: 32px;
   font-weight: 900;
   margin-top: 180px;
-  margin-left: 360px;
 `
